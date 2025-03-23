@@ -36,14 +36,27 @@ export class MahasiswaService {
     return mahasiswa;
   }
 
-  create(createMahasiswaDto: CreateMahasiswaDto): Mahasiswa {
+  // create(createMahasiswaDto: CreateMahasiswaDto): Mahasiswa {
+  //   const newMahasiswa = {
+  //     id: this.idCounter++,
+  //     ...createMahasiswaDto,
+  //   };
+  //   this.mahasiswas.push(newMahasiswa);
+  //   return newMahasiswa;
+  // }
+
+  create(createMahasiswaDto: CreateMahasiswaDto) {
     const newMahasiswa = {
-      id: this.idCounter++,
-      ...createMahasiswaDto,
+      id: this.idCounter++, // ID otomatis
+      nama: createMahasiswaDto.nama,
+      email: createMahasiswaDto.email,
+      jurusan: createMahasiswaDto.jurusan,
+      fakultas: createMahasiswaDto.fakultas
     };
     this.mahasiswas.push(newMahasiswa);
     return newMahasiswa;
   }
+
 
   update(id: number, updateMahasiswaDto: UpdateMahasiswaDto): Mahasiswa {
     const mahasiswaIndex = this.mahasiswas.findIndex(mhs => mhs.id === id);

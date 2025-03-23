@@ -1,7 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsEmail, IsString } from "class-validator";
+import { IsNotEmpty, IsEmail, IsString, IsInt } from "class-validator";
 
 export class CreateMahasiswaDto {
+    @IsInt()
+    id?: number;
+
     @IsNotEmpty({message: 'Nama harus di isi, tidak boleh kosong!'})
     @IsString({message: 'Nama harus dalam bentuk string!'})
     nama: string;
